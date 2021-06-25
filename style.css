@@ -1,0 +1,106 @@
+*{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+*{
+    background-color: #eee;
+}
+
+.header_logo img{
+    display: block;
+    margin: auto;
+}
+
+#container_character{
+    display: none;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container_informacion{
+    display: flex;
+    flex-direction: column;
+}
+.informacion{
+    width: 780px;
+    margin: 0 auto;
+}
+
+.informacion_titulo h2{
+    font-family: 'Varela Round', sans-serif;
+    text-align: center;
+    color:#00AFC7;
+    font-weight: bold;
+}
+.verPersonajes{
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+}
+.verPersonajes h4{
+    display: inline-block;
+    cursor: pointer;
+    font-size: 18px;
+    font-family:'Varela Round', sans-serif ;
+    color: #00AFC7;
+    font-weight: bold;
+}
+
+.verPersonajes h4:hover{
+    color: #026478;
+}
+
+.verPersonajes h4:after{
+    content: "";
+    display: block;
+    margin: auto;
+    height: .5px;
+    width: 0px;
+    transition: all .8s;
+    padding: 1px;
+}
+.verPersonajes h4:hover:after {
+    width: 100%;
+    background: #AFD951;
+}
+
+.card_character{
+    width: 280px;
+    /*box-shadow: 3px 3px 5px 3px #AFD951;*/
+    box-shadow: 0 4px 8px 0 #AFD951;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    align-items: center;
+}
+
+.card_character:hover{
+    box-shadow: 0 8px 16px 1px #AFD951;
+
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    
+}
+
+.card_character--name h2{
+    font-family:  'Varela Round', sans-serif;
+    color: #00AFC7;
+}
+
+.card_character--image{
+    display: block;
+    margin: auto;
+}
+
+.card_character--image img{
+    width: 100%;
+    border-radius: 5px;
+}
+
+/*.card_character--status, .card_character--species,
+.card_location--name, .card_location--type, .card_location--dimension{
+   
+}*/

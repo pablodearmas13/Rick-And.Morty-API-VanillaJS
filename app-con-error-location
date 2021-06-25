@@ -1,0 +1,116 @@
+import API from './API.js'
+
+const api = new API();
+const btnViewCharacter = document.querySelector('#button');
+
+const container_character = document.querySelector('#container_character');
+
+const cantMaxCharacter = await api.getCantCharacter();
+const arrayId = [];
+const arrayCharacter = [];
+
+const arrayLocation = [];
+
+
+const generateIdRandom = (cant) => {
+    return  Math.floor(Math.random()*(cant-1))+1;
+}
+
+
+
+
+btnViewCharacter.addEventListener('click', async () => {
+    for(let index = 0; index < 20; index++){
+        
+        /*arrayId[index] = generateIdRandom(cantMaxCharacter);
+        arrayCharacter[index] = await api.getCharacter(arrayId[index]);
+        arrayLocation[index] = await api.getLocationCharacter(arrayCharacter[index].location.url);
+        */        
+        
+        let id = generateIdRandom(cantMaxCharacter);
+        let character = await api.getCharacter(id);
+        //console.log(character);
+       
+        let locationURL = character.location.url;
+        console.log(typeof locationURL);
+        let location = await api.getLocationCharacter(locationURL);
+                
+        const new_card = document.createElement('DIV');
+        new_card.classList.add('card_character');
+        new_card.innerHTML = `
+            <div class="card_character--name">    
+                <h2> ${character.name} </h2> 
+                <hr>
+            </div>
+            <div class="card_character--image">
+                <img src= ${character.image} alt=${character.image}>
+            </div>
+            <div class="card_character--status">
+                <hr>
+                <p class=""> <strong> Status:</strong> ${character.status} </p>
+            </div>
+            <div class="card_character--species">
+                <hr>
+                <p> <strong> Species:</strong> ${character.species} </p>
+            </div>
+
+            <div class="card_location--name">
+                <hr>
+                <p> <strong> Location name:</strong> ${location.name}</p>
+            </div>
+            <div class="card_location--type">
+                <hr>
+                <p> <strong> Type:</strong> ${location.type}</p>
+            </div>
+            <div class="card_location--dimension"> 
+                <hr>
+                <p> <strong>Dimension:</strong> ${location.dimension}</p>
+            </div>
+
+            
+         
+        `
+        container_character.appendChild(new_card);
+        
+
+
+        /*
+        const new_card = document.createElement('DIV');
+        new_card.classList.add('card_character');
+        new_card.innerHTML = `
+            <div class="card_character--name">    
+                <h2> ${arrayCharacter[index].name} </h2> 
+                <hr>
+            </div>
+            <div class="card_character--image">
+                <img src= ${arrayCharacter[index].image} alt=${arrayCharacter[index].image}>
+            </div>
+            <div class="card_character--status">
+                <hr>
+                <p class=""> <strong> Status:</strong> ${arrayCharacter[index].status} </p>
+            </div>
+            
+            <div class="card_character--species">
+                <hr>
+                <p> <strong> Species:</strong> ${arrayCharacter[index].species} </p>
+            </div>
+            
+         
+        `
+        container_character.appendChild(new_card);
+        */
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+ 
